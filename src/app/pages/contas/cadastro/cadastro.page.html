@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nova Conta</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"><br>
+  <form [formGroup]="contasForm" (submit)="registraConta()" >
+    <ion-item>
+      <ion-icon name="person" color="if" slot="start"></ion-icon>
+      <ion-input formControlName="parceiro" placeholder="Parceiro comercial" autofocus="true"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon name="document" color="if" slot="start"></ion-icon>
+      <ion-input formControlName="descricao" placeholder="Descrição da conta"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon name="wallet" color="if" slot="start"></ion-icon>
+      <ion-input formControlName="valor" type="number" placeholder="Valor da conta"></ion-input>
+    </ion-item><br><br>
+
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="date" ></ion-datetime>
+    </ion-item>
+
+    <ion-radio-group formControlName="tipo">
+      <ion-item>
+        <ion-label>A pagar</ion-label>
+        <ion-radio slot="start" value="pagar"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>A receber</ion-label>
+        <ion-radio slot="start" value="receber"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <br><br>
+    <ion-button [disabled]="contasForm.invalid" type="submit" expand="block" color="if" fill="clear">Enviar</ion-button>
+  </form>
+</ion-content>

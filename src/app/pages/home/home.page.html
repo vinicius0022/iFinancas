@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title (click)="logout()" >
+      iFinanças
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-datetime displayFormat="MM/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="date" (ngModelChange)="atualizaContas()"></ion-datetime>
+  </ion-item><br>
+
+  <dash-card valor={{conta.pagar.valor}} num={{conta.pagar.num}} tipo="pagar"></dash-card>
+  
+  <dash-card valor={{conta.receber.valor}} num={{conta.receber.num}} tipo="receber"></dash-card>
+
+  <dash-card valor={{conta.saldo.valor}} num={{conta.saldo.num}} tipo="saldo"></dash-card>
+
+  <div id="btnMenu">
+    <ion-button expand="block" [routerLink]="['/contas/pagar']" fill="outline">Contas a Pagar</ion-button><br>
+    <ion-button expand="block" [routerLink]="['/contas/receber']" fill="outline">Contas a Receber</ion-button>
+  </div>
+
+</ion-content>
